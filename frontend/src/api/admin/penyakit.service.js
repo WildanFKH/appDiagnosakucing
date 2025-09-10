@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/penyakit';
+const API = `${process.env.VUE_APP_API_URL}/penyakit`;
 
 export default {
   getAll() {
