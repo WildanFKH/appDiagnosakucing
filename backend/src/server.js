@@ -8,10 +8,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -21,6 +18,10 @@ app.use('/api/penyakit', require('./routes/penyakit.route'));
 app.use('/api/gejala-penyakit', require('./routes/gejalaPenyakit.route'));
 app.use('/api/diagnosa', require('./routes/diagnosa.route'));
 app.use('/api/dashboard', require('./routes/dashboard.route'));
+
+app.get('/', (req, res) => {
+    res.send('API running... 🚀');
+  });  
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
