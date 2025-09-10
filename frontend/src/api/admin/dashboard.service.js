@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/dashboard';
+const API = `${process.env.VUE_APP_API_URL}/dashboard`;
 
 export default {
   getSummary() {
